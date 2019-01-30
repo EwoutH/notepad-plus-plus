@@ -2,9 +2,9 @@ version: 1.0.{build}
 image: Visual Studio 2017
 
 platform:
+    - Arm64
     - x64
     - Win32
-    - Arm64
 
 configuration:
     - Unicode Release
@@ -25,7 +25,7 @@ build_script:
     - if "%configuration%"=="Unicode Release" set scintilla_debug=
     - nmake NOBOOST=1 %scintilla_debug% -f scintilla.mak
     - cd %APPVEYOR_BUILD_FOLDER%\PowerEditor\visual.net\
-    - msbuild notepadPlus.vcxproj /p:configuration="%configuration%" /p:platform="%platform%" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - msbuild notepadPlus.vcxproj /p:configuration="%configuration%" /p:platform="%platform%" /p:PlatformToolset= /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 artifacts:
    - name: "Notepad++.$(platform).$(configuration).exe"
