@@ -11,7 +11,7 @@ platform:
 
 configuration:
     - Unicode Release
-    - Unicode Debug
+ #   - Unicode Debug
 
 install:
     - if "%platform%"=="x64" set archi=amd64
