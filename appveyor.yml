@@ -7,6 +7,7 @@ clone_depth: 1
 platform:
     - x64
     - Win32
+    - Arm64
 
 configuration:
     - Unicode Release
@@ -15,6 +16,7 @@ configuration:
 install:
     - if "%platform%"=="x64" set archi=amd64
     - if "%platform%"=="Win32" set archi=x86
+    - if "%platform%"=="Arm64" set archi=ARM64
     - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %archi%
 
 build:
